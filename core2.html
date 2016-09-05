@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Core2 React Example</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="https://fb.me/react-15.2.0.js"></script>
+<script src="https://fb.me/react-dom-15.2.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/babel">
+  const HelloMessage = React.createClass({
+    render: function() {
+      return <div>Hello {this.props.name}</div>;
+      }
+  });
+
+  ReactDOM.render(<HelloMessage name="John" />, document.getElementById("app"));
+</script>
+
+</body>
+</html>
