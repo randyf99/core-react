@@ -10,15 +10,21 @@
 <script src="https://fb.me/react-dom-15.2.0.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
 <script type="text/babel">
-  var styles = {
-    color: 'red',
-    backgroundColor: 'black',
-    fontWeight: 'bold'
-  };
+  var styles = {backgroundColor: 'red'};
+  var tested = true;
+  var text = 'text';
 
-  var reactNode = <div style={styles}>test</div>;
+  var reactNodeLi = <li id=""
+    data-test={tested?'test':'false'}
+    className="blue"
+    aria-test="test"
+    style={styles}
+    foo="bar">
+        {text}
+   </li>; 
+
   
-  ReactDOM.render(reactNode, document.getElementById("app"));
+  ReactDOM.render(reactNodeLi, document.getElementById("app"));
 </script>
 
 </body>
