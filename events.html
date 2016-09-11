@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Core5 React Example</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="https://fb.me/react-15.2.0.js"></script>
+<script src="https://fb.me/react-dom-15.2.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/babel">
+  var Timer = React.createClass({
+      getInitialState: function() { 
+      console.log('getInitialState lifecycle method ran!');
+          return {secondsElapsed: Number(this.props.startTime) || 0};
+      },
+      tick: function() {
+      console.log(ReactDOM.findDOMNode(this));
+      if(this.state.secondsElapsed === 65){
+        ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(this).parentNode);
+        return;
+      }
+      this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+    },
+      componentDidMount: function() {
+      console.log('componentDidMount lifecycle method ran!');
+      this.interval = setInterval(this.tick, 1000);
+    },
+      componentWillUnmount: function() {
+      console.log('componentWillUnmount lifecycle method ran!');
+      clearInterval(this.interval);
+    },
+      render: function() {
+          return (<div>Seconds Elapsed: {this.state.secondsElapsed}</div>);
+      }
+  });
+
+  ReactDOM.render(< Timer startTime = "60" / >, app);
+
+</script>
+
+</body>
+</html>
