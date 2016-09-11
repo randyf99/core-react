@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Core5 React Example</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="https://fb.me/react-15.2.0.js"></script>
+<script src="https://fb.me/react-dom-15.2.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/babel">
+  var BadgeBill = React.createClass({
+    render: function() {return <div>Bill</div>;}
+  });
+
+  var BadgeTom = React.createClass({
+    render: function() {return <div>Tom</div>;}
+  });
+  
+  var BadgeList = React.createClass({
+    render: function() {
+      return (
+        <div>
+          <BadgeBill />    
+          <BadgeTom />    
+        </div>
+      )
+    }
+  });
+
+  ReactDOM.render(<BadgeList />, document.getElementById("app"));
+</script>
+
+</body>
+</html>
