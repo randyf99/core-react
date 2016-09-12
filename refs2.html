@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Core5 React Example</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="https://fb.me/react-15.2.0.js"></script>
+<script src="https://fb.me/react-dom-15.2.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/babel">
+  var MyComponent = React.createClass({
+    handleClick: function() {
+      // Explicitly focus the text input using the raw DOM API.
+        this.textInput.focus();
+    },
+    render: function() {
+      // The ref attribute is a callback that saves a reference to the
+      // component to this.textInput when the component is mounted.
+      return (
+        <div>
+          <input type="text" ref={(thisInput) => {this.textInput = thisInput}} />
+          <input
+            type="button"
+            value="Focus the text input"
+            onClick={this.handleClick}
+          />
+        </div>
+      );
+    }
+  });
+
+  ReactDOM.render(
+    <MyComponent />,
+    document.getElementById('app')
+  );
+
+
+</script>
+
+</body>
+</html>

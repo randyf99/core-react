@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Core5 React Example</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="https://fb.me/react-15.2.0.js"></script>
+<script src="https://fb.me/react-dom-15.2.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/babel">
+  var Parent2 = React.createClass({
+    componentDidMount: function() {
+    //access to <span>child2text</span>, if only one child no array used
+    console.log(this.props.children);
+    //would log child2text, because I am grabbing the child of the <span>
+    console.log(this.props.children.props.children);
+    },
+
+    render: function() {return <div />;}
+  });
+
+  var Parent = React.createClass({
+    componentDidMount: function() {
+    //access to array, containing <div>test</div><div>test</div>
+    console.log(this.props.children);
+    //would log childtext, because I am grabbing the child of the first <div> in the array
+    console.log(this.props.children[1].props.children);
+    },
+
+    render: function() {return <Parent2><span>child2text</span></Parent2>;}
+  });
+
+  ReactDOM.render(
+    <Parent><div>child</div><div>childtext</div></Parent>,
+    document.getElementById('app')
+  );
+
+</script>
+
+</body>
+</html>
