@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Core5 React Example</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="https://fb.me/react-15.2.0.js"></script>
+<script src="https://fb.me/react-dom-15.2.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/babel">
+  var MyComponent = React.createClass({
+    getDefaultProps:function(){
+      return {
+        propArray: [],
+        propBool: false,
+        propFunc: function(){},
+        propNumber: 5,
+        propObject: {},
+        propString: 'string'
+      }
+    },
+    render: function() {
+      return (<div>
+        propArray: {this.props.propArray.toString()} 
+        <br /><br />
+        propFunc returns: {this.props.propFunc()} 
+      </div>) ;
+    }
+  });
+
+  ReactDOM.render(<MyComponent propArray={[1,2,3]} propFunc={function(){return 2;}} />, document.getElementById('app'));
+</script>
+
+</body>
+</html>
