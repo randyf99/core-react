@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Core5 React Example</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="https://fb.me/react-15.2.0.js"></script>
+<script src="https://fb.me/react-dom-15.2.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/babel">
+  var MyComponent = React.createClass({
+    propTypes: {
+      propArray: React.PropTypes.array.isRequired,
+      propFunc: React.PropTypes.func.isRequired,
+    },
+    render: function() {
+      return (<div>
+        propArray: {this.props.propArray.toString()} 
+        <br /><br />
+        propFunc returns: {this.props.propFunc()} 
+      </div>);
+    }
+  });
+  //this has the wrong props
+  //ReactDOM.render(<MyComponent propArray={{test:'test'}} />, document.getElementById('app')); -->
+
+  //This has the right props
+  ReactDOM.render(<MyComponent propArray={[1,2]} propFunc={function(){return 3;}} />, document.getElementById('app'));
+</script>
+
+</body>
+</html>
