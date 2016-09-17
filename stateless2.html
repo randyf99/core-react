@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Core5 React Example</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="https://fb.me/react-15.2.0.js"></script>
+<script src="https://fb.me/react-dom-15.2.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/babel">
+  var MyComponent = function(props){
+    return <div>Hello {props.name}</div>;
+  };
+
+  MyComponent.defaultProps = {name:"John Doe"};
+  MyComponent.propTyes = {name: React.PropTypes.string};
+
+  ReactDOM.render(<MyComponent />, app);
+</script>
+
+</body>
+</html>
