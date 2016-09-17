@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Core5 React Example</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="https://fb.me/react-15.2.0.js"></script>
+<script src="https://fb.me/react-dom-15.2.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/babel">
+  var MoodComponent = React.createClass({
+    getInitialState: function() {
+      return {mood: ':|'};
+    },
+    changeMood:function(event,a){
+      const moods = [':)',':|',':('];
+    const current = moods.indexOf(event.target.textContent);
+      this.setState({mood: current === 2 ? moods[0] : moods[current+1]});
+    },
+    render: function() {
+      return (
+        <span style={{fontSize:'60',border:'1px solid #333',cursor:'pointer'}} 
+            onClick={this.changeMood}>
+          {this.state.mood}
+      </span>
+      )
+    }
+  });
+
+  ReactDOM.render(< MoodComponent / >, app);
+</script>
+
+</body>
+</html>
